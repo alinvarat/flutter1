@@ -44,31 +44,51 @@ class _MyAppState extends State<MyApp> {
                     verticalDirection: VerticalDirection.up,
                     children: [
                       Container(
+                        /*child: Row(
+                          children: [
+                            Container(
+                              width: 100,
+                              height: 100,
+                               color: Color.fromARGB(255, 255, 17, 0),
+                            )
+                          ]
+                        ),*/
+                      )
+                    ]
+                  )
+                ),
+                Container(
+                  child: Column(
+                    verticalDirection: VerticalDirection.down,
+                    children: [
+                      Container(
                         child: Row(
                           children: [
                             Container(
-                              width: double.infinity,
+                              width: 100,
                               height: 100,
-                               color: Colors.red,
+                               color: Color.fromARGB(255, 255, 17, 0),
                             )
                           ]
                         ),
                       )
                     ]
                   )
-                ),
-                Container(
-                  
                 )
               ],
             ),
           ),   
         ),
         bottomNavigationBar: BottomNavigationBar(
+          unselectedFontSize: 0,
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-                        label: 'Home',
+              label: "Home",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: "Home",
             ),
           ],
         ),
