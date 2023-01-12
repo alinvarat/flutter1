@@ -1,34 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-bool _iconBool = false;
-
-IconData _iconLight = Icons.wb_sunny;
-IconData _iconDark = Icons.nights_stay;
-
-ThemeData _lightTheme = ThemeData(
-    primarySwatch: Colors.amber,
-    brightness: Brightness.light,
-    buttonTheme: const ButtonThemeData(
-      buttonColor: Colors.amberAccent,
-    ));
-
-ThemeData _darkTheme = ThemeData(
-  primarySwatch: Colors.red,
-  brightness: Brightness.dark,
-);
-
-class _MyAppState extends State<MyApp> {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,61 +13,61 @@ class _MyAppState extends State<MyApp> {
         body: SafeArea(
           child: Container(
             child: Stack(
-            //verticalDirection: VerticalDirection.up,
               children: [
                 Container(
-                  child: Column(
-                    verticalDirection: VerticalDirection.up,
-                    children: [
-                      Container(
-                        /*child: Row(
-                          children: [
-                            Container(
-                              width: 100,
-                              height: 100,
-                               color: Color.fromARGB(255, 255, 17, 0),
-                            )
-                          ]
-                        ),*/
-                      )
-                    ]
-                  )
-                ),
-                Container(
-                  child: Column(
-                    verticalDirection: VerticalDirection.down,
-                    children: [
-                      Container(
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 100,
-                              height: 100,
-                               color: Color.fromARGB(255, 255, 17, 0),
-                            )
-                          ]
-                        ),
-                      )
-                    ]
-                  )
+                  child: MyHomePage(),
                 )
               ],
             ),
           ),   
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          unselectedFontSize: 0,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
-            ),
-          ],
-        ),
+      ),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage>{
+  int _currentIndex = 0;
+  List<Widget> body = const [
+    Icon(Icons.home),
+    Icon(Icons.map),
+    Icon(Icons.person),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: body[_currentIndex],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (int newIndex) {
+          setState(() {
+            _currentIndex = newIndex;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(
+            label: 'Home',
+            icon: Icon(Icons.home_outlined),
+          ),
+          BottomNavigationBarItem(
+            label: 'Map',
+            icon: Icon(Icons.map_outlined),
+          ),
+          BottomNavigationBarItem(
+            label: 'Profile',
+            icon: Icon(Icons.person_outlined),
+          ),
+        ],
       ),
     );
   }
