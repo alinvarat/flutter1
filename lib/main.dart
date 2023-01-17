@@ -36,9 +36,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>{
   int _currentIndex = 0;
   List<Widget> body = const [
-    Icon(Icons.home),
+    /*Icon(Icons.home),
     Icon(Icons.map),
-    Icon(Icons.person),
+    Icon(Icons.person),*/
   ];
 
   @override
@@ -57,15 +57,15 @@ class _MyHomePageState extends State<MyHomePage>{
         items: const [
           BottomNavigationBarItem(
             label: 'Home',
-            icon: Icon(Icons.home_outlined),
+            icon: Icon(Icons.home_rounded,size: 30,),
           ),
           BottomNavigationBarItem(
             label: 'Map',
-            icon: Icon(Icons.map_outlined),
+            icon: Icon(Icons.map_rounded,size: 30,),
           ),
           BottomNavigationBarItem(
             label: 'Profile',
-            icon: Icon(Icons.person_outlined),
+            icon: Icon(Icons.person_rounded,size: 30,),
           ),
         ],
       ),
