@@ -33,9 +33,55 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+bool ispressed = false;
+
 class _MyHomePageState extends State<MyHomePage>{
   int _currentIndex = 0;
-  List<Widget> body = const [
+  List<Widget> body =  [
+    Scaffold(
+      body: SafeArea(
+        child: Container(
+          child: Stack(
+            children: [
+              Container(
+                child: IconButton(
+                  color: ispressed ? Colors.green : Colors.blue,
+                  icon: Icon(Icons.favorite),
+                  onPressed: () {
+                    setState(() {
+                        ispressed = !ispressed;
+                      }
+                    );
+                  },
+                ),
+              ),
+            ]
+          ),
+        )
+      ),
+    ),
+    Scaffold(
+      body: SafeArea(
+        child: Container(
+          child: Stack(
+            children: [
+              Container(),
+            ]
+          ),
+        )
+      ),
+    ),
+    Scaffold(
+      body: SafeArea(
+        child: Container(
+          child: Stack(
+            children: [
+              Container(),
+            ]
+          ),
+        )
+      ),
+    ),
     /*Icon(Icons.home),
     Icon(Icons.map),
     Icon(Icons.person),*/
